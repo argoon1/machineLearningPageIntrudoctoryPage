@@ -1,2 +1,153 @@
 /// Homepage Styles File
 /// Here we import all the Styles files we need for our Homepage.
+
+/* BREAK WIDTH 
+   tablet break: 1024px;
+   mobile break: 724px;
+*/
+@use "sass:list";
+
+html {
+  font-size: 62.5%;
+}
+$iconsColors: #ca59ff #6c7cff #2affff #fff629; //colors of consecutive ai info icons
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin: 4.8rem auto 0 auto;
+  column-gap: 10.9rem;
+  max-width: 34.3rem; //add correct width from figma
+  &__header {
+    border-radius: var(--rounding-mobile);
+    & &__title {
+      border-radius: var(--rounding-mobile);
+      font-size: 3.2rem;
+      line-height: 4rem;
+      letter-spacing: 0.01em;
+    }
+    & &__subtitle {
+      margin-top: 1.6rem;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      font-weight: normal;
+    }
+  }
+  &__ai-types {
+    max-width: 37.5rem;
+    margin-top: 2.55rem;
+    text-align: center;
+    display: grid;
+    row-gap: 1.6rem;
+    @for $i from 1 through 4 {
+      &__info:nth-child(#{$i}) &__info__image-container {
+        background-color: rgba(list.nth($iconsColors, $i), 0.1);
+      }
+    }
+    &__info {
+      background-color: var(--color-secondary);
+      border-radius: var(--rounding-mobile);
+
+      min-height: 19.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 1.6rem;
+      padding: 1.6rem 1.7rem 1.6rem 1.4rem;
+      &__image-container {
+        border-radius: var(--rounding-mobile);
+        padding: 1.4rem;
+        &__image {
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+      }
+
+      &__description {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        color: var(--color-on-secondary);
+      }
+      &__title {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 524px) {
+  .home-page {
+    max-width: 49.6rem;
+    flex-direction: column;
+    margin: 24.7rem auto 0 auto;
+
+    &__header {
+      & &__title {
+        font-size: 4.8rem;
+        line-height: 5.6rem;
+      }
+      & &__subtitle {
+      }
+    }
+    &__ai-types {
+      display: grid;
+      grid-template: 1fr 1fr/1fr 1fr;
+      gap: 1.6rem;
+      margin-top: 2.8rem;
+      &__info {
+        row-gap: 1.4rem;
+        width: 24rem;
+        min-height: 21.8rem;
+
+        padding: 1.6rem 1.7rem 1.6rem 1.4rem;
+
+        &__image-container {
+        }
+        &__description {
+          line-height: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-page {
+    flex-direction: row;
+    max-width: 1136px;
+    margin: 15.9em auto 0 auto;
+    &__header {
+      width: 46.7rem;
+      & &__title {
+      }
+      & &__subtitle {
+        margin-top: 2.4rem;
+      }
+    }
+    &__ai-types {
+      gap: 2.4rem;
+      row-gap: 3rem;
+      margin-top: 0.5rem;
+      &__info {
+        text-align: center;
+        border-radius: var(--rounding-tablet);
+        min-height: 24rem;
+        width: 26.8rem;
+        padding: 2rem 1.6rem;
+        &__image-container {
+          border-radius: var(--rounding-tablet);
+          padding: 1.6rem;
+          &__image {
+            width: 3.2rem;
+            height: 3.2rem;
+          }
+        }
+        &__description {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+/* The goal of AI is to create systems that can operate autonomously, making decisions and taking actions based on their own understanding of the world, without the need for direct human input. */

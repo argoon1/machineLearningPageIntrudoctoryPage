@@ -4,10 +4,22 @@
 @import "styles/normalize.scss";
 @import "styles/root.scss";
 @import "styles/fonts.scss";
-
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
 body {
-  font-family: 'Roboto', sans-serif;
-  color: var(--color-primary);
+  font-family: "DM sans";
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 p {
